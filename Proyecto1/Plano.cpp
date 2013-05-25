@@ -5,7 +5,7 @@
 #include <iostream>
 #include <windows.h>
 
-static GLfloat spin=0.0;
+static GLfloat z_Spin=0.0;
 static GLfloat ancho_plano=500;
 static GLfloat alto_plano=500;
 float xPosicion = 0.0f;
@@ -93,22 +93,28 @@ void display (void){
 		}
 	}				
 	glEnd();
-	glDisable(GL_LINE_STIPPLE);		
+	glDisable(GL_LINE_STIPPLE);	
+	glPushMatrix();
+	glRotatef(z_Spin,0.0,0.0,1.0);
 	glBegin(GL_QUADS);
 	glColor3f(1.0,1.0,0.5);
 	for(int i=0;i<4;i++){
 		
 		glVertex2f(pared[i][0]+xPosicion,pared[i][1]+yPosicion);
+		
 	}
 	glColor3f(1.0,0.0,0.0);
 	for(int i=0;i<4;i++){
-		glVertex2f(ventanaI[i][0]+xPosicion,ventanaI[i][1]+yPosicion);		
+		glVertex2f(ventanaI[i][0]+xPosicion,ventanaI[i][1]+yPosicion);	
+		
 	}
 	for(int i=0;i<4;i++){
-		glVertex2f(ventanaD[i][0]+xPosicion,ventanaD[i][1]+yPosicion);		
+		glVertex2f(ventanaD[i][0]+xPosicion,ventanaD[i][1]+yPosicion);	
+		
 	}
 	for(int i=0;i<4;i++){
-		glVertex2f(puerta[i][0]+xPosicion,puerta[i][1]+yPosicion);		
+		glVertex2f(puerta[i][0]+xPosicion,puerta[i][1]+yPosicion);
+		
 	}
 
 	glEnd();	
@@ -116,8 +122,10 @@ void display (void){
 	glColor3f(1.0,0.0,1.0);
 	for(int i=0;i<4;i++){
 		glVertex2f(techo[i][0]+xPosicion,techo[i][1]+yPosicion);		
+		
 	}														
-	glEnd();	  		
+	glEnd();	  	
+	glPopMatrix();
 	glutSwapBuffers();
 }
 
@@ -128,40 +136,48 @@ void init (void){
 
 
 void keyboard( unsigned char key, int x, int y ){
-	/*switch ( key ) {
-
-	case GLUT_KEY_UP:									
-		yPosicion=yPosicion+10.0;			
-		break;
-
-	default:									
-		break;
-
-	}*/
+	switch ( key ) {
+		case 'q':
+			z_Spin=z_Spin+10.0;	
+			if (z_Spin>360.0)
+				z_Spin=z_Spin-360.0;								
+			break;
+		case 'e':									
+			z_Spin=z_Spin-10.0;	
+			if (z_Spin<-360)
+				z_Spin=z_Spin+360.0;
+					
+			break;
+		default:		
+			break;
+	}
+		glutPostRedisplay();
+	
 }
 void handleSpecialKeypress(int key, int x, int y) {
 	switch ( key ) {
 
 	case GLUT_KEY_UP:									
 		yPosicion=yPosicion+10.0;		
-		glutPostRedisplay();
+		
 		break;
 	case GLUT_KEY_DOWN:											
-		glutPostRedisplay();
+		
 		yPosicion=yPosicion-10.0;
 		break;
 	case GLUT_KEY_RIGHT:									
 		xPosicion=xPosicion+10.0;
-		glutPostRedisplay();
+		
 		break;
 	case GLUT_KEY_LEFT:									
 		xPosicion=xPosicion-10.0;
-		glutPostRedisplay();
+		
 		break;
 	default:									
 		break;
 
 	}
+	glutPostRedisplay();
 }
 
 
