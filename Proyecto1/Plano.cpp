@@ -4,13 +4,14 @@
 #include <GL/glut.h>
 #include <iostream>
 #include <windows.h>
-
+static GLfloat x_Spin=0.0;
+static GLfloat y_Spin=0.0;
 static GLfloat z_Spin=0.0;
 static GLfloat ancho_plano=500;
 static GLfloat alto_plano=500;
-float xPosicion = 0.0f;
-float yPosicion = 0.0f;
-float yRotationAngle = 0.0f;
+GLfloat xPosicion = 0.0f;
+GLfloat yPosicion = 0.0f;
+GLfloat yRotationAngle = 0.0f;
 
 
 static GLfloat pared[4][2]={
@@ -51,7 +52,7 @@ void reshape(int w, int h){
 	glViewport(0,0,(GLsizei)w,(GLsizei)h);
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	glOrtho(-ancho_plano/2,ancho_plano/2,-ancho_plano/2, ancho_plano/2, -1.0, 1.0);
+	glOrtho(-ancho_plano/2,ancho_plano/2,-ancho_plano/2, ancho_plano/2, -ancho_plano/2, ancho_plano/2);
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
@@ -95,6 +96,8 @@ void display (void){
 	glEnd();
 	glDisable(GL_LINE_STIPPLE);	
 	glPushMatrix();
+	glRotatef(x_Spin,1.0,0.0,0.0);
+	glRotatef(y_Spin,0.0,1.0,0.0);
 	glRotatef(z_Spin,0.0,0.0,1.0);
 	glBegin(GL_QUADS);
 	glColor3f(1.0,1.0,0.5);
@@ -145,8 +148,27 @@ void keyboard( unsigned char key, int x, int y ){
 		case 'e':									
 			z_Spin=z_Spin-10.0;	
 			if (z_Spin<-360)
-				z_Spin=z_Spin+360.0;
-					
+				z_Spin=z_Spin+360.0;					
+			break;
+		case 'w':
+			y_Spin=y_Spin+10.0;	
+			if (y_Spin>360.0)
+				y_Spin=y_Spin-360.0;								
+			break;
+		case 's':									
+			y_Spin=y_Spin-10.0;	
+			if (y_Spin<-360)
+				y_Spin=y_Spin+360.0;					
+			break;
+		case 'a':
+			x_Spin=x_Spin+10.0;	
+			if (x_Spin>360.0)
+				x_Spin=x_Spin-360.0;								
+			break;
+		case 'd':									
+			x_Spin=x_Spin-10.0;	
+			if (x_Spin<-360)
+				x_Spin=x_Spin+360.0;					
 			break;
 		default:		
 			break;
