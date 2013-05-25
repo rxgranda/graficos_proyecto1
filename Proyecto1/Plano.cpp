@@ -128,7 +128,7 @@ void init (void){
 
 
 void keyboard( unsigned char key, int x, int y ){
-	switch ( key ) {
+	/*switch ( key ) {
 
 	case GLUT_KEY_UP:									
 		yPosicion=yPosicion+10.0;			
@@ -137,7 +137,7 @@ void keyboard( unsigned char key, int x, int y ){
 	default:									
 		break;
 
-	}
+	}*/
 }
 void handleSpecialKeypress(int key, int x, int y) {
 	switch ( key ) {
