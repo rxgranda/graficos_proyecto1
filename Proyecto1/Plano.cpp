@@ -96,6 +96,8 @@ void display (void){
 	glEnd();
 	glDisable(GL_LINE_STIPPLE);	
 	glPushMatrix();
+	
+	glTranslatef(xPosicion,yPosicion,0.0);
 	glRotatef(x_Spin,1.0,0.0,0.0);
 	glRotatef(y_Spin,0.0,1.0,0.0);
 	glRotatef(z_Spin,0.0,0.0,1.0);
@@ -103,30 +105,32 @@ void display (void){
 	glColor3f(1.0,1.0,0.5);
 	for(int i=0;i<4;i++){
 		
-		glVertex2f(pared[i][0]+xPosicion,pared[i][1]+yPosicion);
+		glVertex2f(pared[i][0],pared[i][1]);
 		
 	}
 	glColor3f(1.0,0.0,0.0);
 	for(int i=0;i<4;i++){
-		glVertex2f(ventanaI[i][0]+xPosicion,ventanaI[i][1]+yPosicion);	
+		glVertex2f(ventanaI[i][0],ventanaI[i][1]);	
 		
 	}
 	for(int i=0;i<4;i++){
-		glVertex2f(ventanaD[i][0]+xPosicion,ventanaD[i][1]+yPosicion);	
+		glVertex2f(ventanaD[i][0],ventanaD[i][1]);	
 		
 	}
 	for(int i=0;i<4;i++){
-		glVertex2f(puerta[i][0]+xPosicion,puerta[i][1]+yPosicion);
+		glVertex2f(puerta[i][0],puerta[i][1]);
 		
 	}
+	
 
 	glEnd();	
 	glBegin(GL_TRIANGLES);
 	glColor3f(1.0,0.0,1.0);
 	for(int i=0;i<4;i++){
-		glVertex2f(techo[i][0]+xPosicion,techo[i][1]+yPosicion);		
+		glVertex2f(techo[i][0],techo[i][1]);		
 		
-	}														
+	}
+	
 	glEnd();	  	
 	glPopMatrix();
 	glutSwapBuffers();
@@ -141,32 +145,32 @@ void init (void){
 void keyboard( unsigned char key, int x, int y ){
 	switch ( key ) {
 		case 'q':
-			z_Spin=z_Spin+10.0;	
+			z_Spin=z_Spin+2.5;	
 			if (z_Spin>360.0)
 				z_Spin=z_Spin-360.0;								
 			break;
 		case 'e':									
-			z_Spin=z_Spin-10.0;	
+			z_Spin=z_Spin-2.5;	
 			if (z_Spin<-360)
 				z_Spin=z_Spin+360.0;					
 			break;
 		case 'w':
-			y_Spin=y_Spin+10.0;	
+			y_Spin=y_Spin+2.5;	
 			if (y_Spin>360.0)
 				y_Spin=y_Spin-360.0;								
 			break;
 		case 's':									
-			y_Spin=y_Spin-10.0;	
+			y_Spin=y_Spin-2.5;	
 			if (y_Spin<-360)
 				y_Spin=y_Spin+360.0;					
 			break;
 		case 'a':
-			x_Spin=x_Spin+10.0;	
+			x_Spin=x_Spin+2.5;	
 			if (x_Spin>360.0)
 				x_Spin=x_Spin-360.0;								
 			break;
 		case 'd':									
-			x_Spin=x_Spin-10.0;	
+			x_Spin=x_Spin-2.5;	
 			if (x_Spin<-360)
 				x_Spin=x_Spin+360.0;					
 			break;
@@ -180,19 +184,19 @@ void handleSpecialKeypress(int key, int x, int y) {
 	switch ( key ) {
 
 	case GLUT_KEY_UP:									
-		yPosicion=yPosicion+10.0;		
+		yPosicion=yPosicion+2.5;		
 		
 		break;
 	case GLUT_KEY_DOWN:											
 		
-		yPosicion=yPosicion-10.0;
+		yPosicion=yPosicion-2.5;
 		break;
 	case GLUT_KEY_RIGHT:									
-		xPosicion=xPosicion+10.0;
+		xPosicion=xPosicion+2.5;
 		
 		break;
 	case GLUT_KEY_LEFT:									
-		xPosicion=xPosicion-10.0;
+		xPosicion=xPosicion-2.5;
 		
 		break;
 	default:									
