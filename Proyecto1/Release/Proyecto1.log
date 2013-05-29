@@ -1,0 +1,23 @@
+﻿Compilación iniciada a las 28/05/2013 20:00:10.
+     1>Proyecto "C:\Users\Roger\documents\visual studio 2010\Projects\Proyecto1\Proyecto1\Proyecto1.vcxproj" en el nodo 2 (build destinos).
+     1>InitializeBuildStatus:
+         Se creará "Release\Proyecto1.unsuccessfulbuild" porque se especificó "AlwaysCreate".
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D _MBCS /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Plano.cpp
+         Plano.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Roger\documents\visual studio 2010\Projects\Proyecto1\Release\Proyecto1.exe" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Release\Proyecto1.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\Roger\documents\visual studio 2010\Projects\Proyecto1\Release\Proyecto1.pdb" /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Roger\documents\visual studio 2010\Projects\Proyecto1\Release\Proyecto1.lib" /MACHINE:X86 Release\Plano.obj
+         Release\SimpleDraw.obj
+         Generando código
+         Generación de código finalizada
+         Proyecto1.vcxproj -> C:\Users\Roger\documents\visual studio 2010\Projects\Proyecto1\Release\Proyecto1.exe
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Users\Roger\documents\visual studio 2010\Projects\Proyecto1\Release\Proyecto1.exe;#1" /manifest Release\Proyecto1.exe.intermediate.manifest
+       FinalizeBuildStatus:
+         Se eliminará el archivo "Release\Proyecto1.unsuccessfulbuild".
+         Aplicando tarea Touch a "Release\Proyecto1.lastbuildstate".
+     1>Compilación del proyecto terminada "C:\Users\Roger\documents\visual studio 2010\Projects\Proyecto1\Proyecto1\Proyecto1.vcxproj" (build destinos).
+
+Compilación correcta.
+
+Tiempo transcurrido 00:00:02.54
