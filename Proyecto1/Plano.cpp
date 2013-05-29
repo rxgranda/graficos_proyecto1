@@ -152,7 +152,7 @@ void display (void){
 void init (void){
 	glClearColor(0.0,0.0,0.0,0.0);
 	glShadeModel(GL_FLAT);
-	//glDisable(GL_CULL_FACE);
+	glDisable(GL_CULL_FACE);
 }
 
 /*
